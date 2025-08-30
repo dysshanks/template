@@ -1,4 +1,46 @@
 
+## Update readme.yml
+- **Commit:** `7a64ab4f6262cefa96f87db78b07f28a2af565a2`
+- **Date:** 2025-08-30 17:28:07 +0200
+- **Author:** dysshanks
+
+### Preview (first 3 lines of changes)
+```diff
+commit 7a64ab4f6262cefa96f87db78b07f28a2af565a2
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:28:07 2025 +0200
+```
+
+<details><summary>Full changes</summary>
+
+```diff
+commit 7a64ab4f6262cefa96f87db78b07f28a2af565a2
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:28:07 2025 +0200
+
+    Update readme.yml
+    
+    gave write permission
+
+diff --git a/.github/workflows/readme.yml b/.github/workflows/readme.yml
+index d991b6b..3c96d2d 100644
+--- a/.github/workflows/readme.yml
++++ b/.github/workflows/readme.yml
+@@ -6,6 +6,9 @@ on:
+       - main
+   workflow_dispatch:
+ 
++permissions:
++  contents: write
++
+ jobs:
+   generate-readme:
+     runs-on: ubuntu-latest
+```
+
+</details>
+
+
 ## Merge branch 'main' of https://github.com/dysshanks/template
 - **Commit:** `5880f7dfc55444d926491a14c6bf6fbbc4a3cdd9`
 - **Date:** 2025-08-30 17:26:12 +0200
