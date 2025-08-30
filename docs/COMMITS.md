@@ -1,5 +1,75 @@
 
 ## Merge branch 'main' of https://github.com/dysshanks/template
+- **Commit:** `5880f7dfc55444d926491a14c6bf6fbbc4a3cdd9`
+- **Date:** 2025-08-30 17:26:12 +0200
+- **Author:** dysshanks
+
+### Preview (first 3 lines of changes)
+```diff
+commit 5880f7dfc55444d926491a14c6bf6fbbc4a3cdd9
+Merge: 9946f52 2f99eef
+Author: dysshanks <ryanvdvorst@outlook.com>
+```
+
+<details><summary>Full changes</summary>
+
+```diff
+commit 5880f7dfc55444d926491a14c6bf6fbbc4a3cdd9
+Merge: 9946f52 2f99eef
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:26:12 2025 +0200
+
+    Merge branch 'main' of https://github.com/dysshanks/template
+
+```
+
+</details>
+
+## Create .editorconfig
+- **Commit:** `9946f52f1752238eee6ade31fb112f88573d69cf`
+- **Date:** 2025-08-30 17:25:58 +0200
+- **Author:** dysshanks
+
+### Preview (first 3 lines of changes)
+```diff
+commit 9946f52f1752238eee6ade31fb112f88573d69cf
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:25:58 2025 +0200
+```
+
+<details><summary>Full changes</summary>
+
+```diff
+commit 9946f52f1752238eee6ade31fb112f88573d69cf
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:25:58 2025 +0200
+
+    Create .editorconfig
+    
+    made a simple editorconfig
+
+diff --git a/.editorconfig b/.editorconfig
+new file mode 100644
+index 0000000..86199ac
+--- /dev/null
++++ b/.editorconfig
+@@ -0,0 +1,9 @@
++root = true
++
++[*]
++charset = utf-8
++end_of_line = lf
++indent_style = tab
++insert_final_newline = true
++tab_width = 2
++trim_trailing_whitespace = true
+\ No newline at end of file
+```
+
+</details>
+
+
+## Merge branch 'main' of https://github.com/dysshanks/template
 - **Commit:** `8177c06143bd562d763d40b5728322c53d90d386`
 - **Date:** 2025-08-30 17:22:30 +0200
 - **Author:** dysshanks
