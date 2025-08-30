@@ -1,5 +1,113 @@
 
 ## Update readme.yml
+- **Commit:** `3a0d8a017b619e8741934e4fa3df6292696fde9f`
+- **Date:** 2025-08-30 17:33:20 +0200
+- **Author:** dysshanks
+
+### Preview (first 3 lines of changes)
+```diff
+commit 3a0d8a017b619e8741934e4fa3df6292696fde9f
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:33:20 2025 +0200
+```
+
+<details><summary>Full changes</summary>
+
+```diff
+commit 3a0d8a017b619e8741934e4fa3df6292696fde9f
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:33:20 2025 +0200
+
+    Update readme.yml
+    
+    i hope it works now
+
+diff --git a/.github/workflows/readme.yml b/.github/workflows/readme.yml
+index 3c96d2d..0091989 100644
+--- a/.github/workflows/readme.yml
++++ b/.github/workflows/readme.yml
+@@ -2,8 +2,7 @@ name: Generate README
+ 
+ on:
+   push:
+-    branches:
+-      - main
++    branches: [ main ]
+   workflow_dispatch:
+ 
+ permissions:
+@@ -13,44 +12,43 @@ jobs:
+   generate-readme:
+     runs-on: ubuntu-latest
+     steps:
+-      - name: Checkout repo
+-        uses: actions/checkout@v3
++      - uses: actions/checkout@v3
+ 
+       - name: Get repository name
+         id: repo
+-        run: echo "repo_name=${GITHUB_REPOSITORY##*/}" >> $GITHUB_OUTPUT
++        run: echo "repo_name=${GITHUB_REPOSITORY##*/}" >> "$GITHUB_OUTPUT"
+ 
+       - name: Check if README exists
+         id: check_readme
+         run: |
+           if [ -f README.md ]; then
+-            echo "exists=true" >> $GITHUB_OUTPUT
++            echo "exists=true" >> "$GITHUB_OUTPUT"
+           else
+-            echo "exists=false" >> $GITHUB_OUTPUT
++            echo "exists=false" >> "$GITHUB_OUTPUT"
+           fi
+ 
+-      - name: Generate README
+-        if: steps.check_readme.outputs.exists == 'false'
+-        run: |
+-          cat <<EOF > README.md
+-          # ${{
+-            steps.repo.outputs.repo_name
+-          }}
+-
+-          ![Build](https://github.com/${GITHUB_REPOSITORY}/actions/workflows/readme-generator.yml/badge.svg)
+-          ![Issues](https://img.shields.io/github/issues/${GITHUB_REPOSITORY})
+-          ![Stars](https://img.shields.io/github/stars/${GITHUB_REPOSITORY})
+-          ![License](https://img.shields.io/github/license/${GITHUB_REPOSITORY})
+-
+-          ---
+-          *This README was auto-generated.*
+-          EOF
++          - name: Generate README
++          if: ${{ steps.check_readme.outputs.exists == 'false' }}
++          run: |
++            cat <<EOF > README.md
++        # ${{ steps.repo.outputs.repo_name }}
++        
++        ![Build](https://github.com/${{ github.repository }}/actions/workflows/readme-generator.yml/badge.svg)
++        ![Issues](https://img.shields.io/github/issues/${{ github.repository }})
++        ![Stars](https://img.shields.io/github/stars/${{ github.repository }})
++        ![License](https://img.shields.io/github/license/${{ github.repository }})
++        
++        ---
++        *This README was auto-generated.*
++        EOF
++        
+ 
+       - name: Commit and push README
+-        if: steps.check_readme.outputs.exists == 'false'
++        if: ${{ steps.check_readme.outputs.exists == 'false' }}
+         run: |
+           git config --global user.name "github-actions[bot]"
+           git config --global user.email "github-actions[bot]@users.noreply.github.com"
++          git pull --rebase origin main
+           git add README.md
+           git commit -m "Auto-generate README.md"
+           git push
+```
+
+</details>
+
+
+## Update readme.yml
 - **Commit:** `7a64ab4f6262cefa96f87db78b07f28a2af565a2`
 - **Date:** 2025-08-30 17:28:07 +0200
 - **Author:** dysshanks
