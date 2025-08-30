@@ -27,21 +27,18 @@ jobs:
             echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
 
-          - name: Generate README
-          if: ${{ steps.check_readme.outputs.exists == 'false' }}
-          run: |
-            cat <<EOF > README.md
-        # ${{ steps.repo.outputs.repo_name }}
-        
-        ![Build](https://github.com/${{ github.repository }}/actions/workflows/readme-generator.yml/badge.svg)
-        ![Issues](https://img.shields.io/github/issues/${{ github.repository }})
-        ![Stars](https://img.shields.io/github/stars/${{ github.repository }})
-        ![License](https://img.shields.io/github/license/${{ github.repository }})
-        
-        ---
-        *This README was auto-generated.*
-        EOF
-        
+      - name: Generate README
+        if: ${{ steps.check_readme.outputs.exists == 'false' }}
+        run: |
+          echo "# ${{ steps.repo.outputs.repo_name }}" > README.md
+          echo "" >> README.md
+          echo "![Build](https://github.com/${{ github.repository }}/actions/workflows/readme-generator.yml/badge.svg)" >> README.md
+          echo "![Issues](https://img.shields.io/github/issues/${{ github.repository }})" >> README.md
+          echo "![Stars](https://img.shields.io/github/stars/${{ github.repository }})" >> README.md
+          echo "![License](https://img.shields.io/github/license/${{ github.repository }})" >> README.md
+          echo "" >> README.md
+          echo "---" >> README.md
+          echo "*This README was auto-generated.*" >> README.md
 
       - name: Commit and push README
         if: ${{ steps.check_readme.outputs.exists == 'false' }}
