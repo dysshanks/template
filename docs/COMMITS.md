@@ -1,4 +1,115 @@
 
+## Merge branch 'main' of https://github.com/dysshanks/template
+- **Commit:** `8177c06143bd562d763d40b5728322c53d90d386`
+- **Date:** 2025-08-30 17:22:30 +0200
+- **Author:** dysshanks
+
+### Preview (first 3 lines of changes)
+```diff
+commit 8177c06143bd562d763d40b5728322c53d90d386
+Merge: 1d6ad64 4f7dbd5
+Author: dysshanks <ryanvdvorst@outlook.com>
+```
+
+<details><summary>Full changes</summary>
+
+```diff
+commit 8177c06143bd562d763d40b5728322c53d90d386
+Merge: 1d6ad64 4f7dbd5
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:22:30 2025 +0200
+
+    Merge branch 'main' of https://github.com/dysshanks/template
+
+```
+
+</details>
+
+## auto readme maker
+- **Commit:** `1d6ad641d9c7a8df24509f4175a81beea936ee08`
+- **Date:** 2025-08-30 17:22:02 +0200
+- **Author:** dysshanks
+
+### Preview (first 3 lines of changes)
+```diff
+commit 1d6ad641d9c7a8df24509f4175a81beea936ee08
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:22:02 2025 +0200
+```
+
+<details><summary>Full changes</summary>
+
+```diff
+commit 1d6ad641d9c7a8df24509f4175a81beea936ee08
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Sat Aug 30 17:22:02 2025 +0200
+
+    auto readme maker
+
+diff --git a/.github/workflows/readme.yml b/.github/workflows/readme.yml
+new file mode 100644
+index 0000000..d991b6b
+--- /dev/null
++++ b/.github/workflows/readme.yml
+@@ -0,0 +1,53 @@
++name: Generate README
++
++on:
++  push:
++    branches:
++      - main
++  workflow_dispatch:
++
++jobs:
++  generate-readme:
++    runs-on: ubuntu-latest
++    steps:
++      - name: Checkout repo
++        uses: actions/checkout@v3
++
++      - name: Get repository name
++        id: repo
++        run: echo "repo_name=${GITHUB_REPOSITORY##*/}" >> $GITHUB_OUTPUT
++
++      - name: Check if README exists
++        id: check_readme
++        run: |
++          if [ -f README.md ]; then
++            echo "exists=true" >> $GITHUB_OUTPUT
++          else
++            echo "exists=false" >> $GITHUB_OUTPUT
++          fi
++
++      - name: Generate README
++        if: steps.check_readme.outputs.exists == 'false'
++        run: |
++          cat <<EOF > README.md
++          # ${{
++            steps.repo.outputs.repo_name
++          }}
++
++          ![Build](https://github.com/${GITHUB_REPOSITORY}/actions/workflows/readme-generator.yml/badge.svg)
++          ![Issues](https://img.shields.io/github/issues/${GITHUB_REPOSITORY})
++          ![Stars](https://img.shields.io/github/stars/${GITHUB_REPOSITORY})
++          ![License](https://img.shields.io/github/license/${GITHUB_REPOSITORY})
++
++          ---
++          *This README was auto-generated.*
++          EOF
++
++      - name: Commit and push README
++        if: steps.check_readme.outputs.exists == 'false'
++        run: |
++          git config --global user.name "github-actions[bot]"
++          git config --global user.email "github-actions[bot]@users.noreply.github.com"
++          git add README.md
++          git commit -m "Auto-generate README.md"
++          git push
+```
+
+</details>
+
+
 ## updated logger
 - **Commit:** `3f2b9e291a5841f85323464fce2e2e9e50489216`
 - **Date:** 2025-08-30 17:11:29 +0200
