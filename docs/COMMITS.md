@@ -1,4 +1,45 @@
 
+## Delete README.md
+- **Commit:** `0776fe3c575ed21fcdd7aa89c046ea22a43063da`
+- **Date:** 2025-09-09 12:45:21 +0200
+- **Author:** dysshanks
+
+### Preview (first 3 lines of changes)
+```diff
+commit 0776fe3c575ed21fcdd7aa89c046ea22a43063da
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Tue Sep 9 12:45:21 2025 +0200
+```
+
+<details><summary>Full changes</summary>
+
+```diff
+commit 0776fe3c575ed21fcdd7aa89c046ea22a43063da
+Author: dysshanks <ryanvdvorst@outlook.com>
+Date:   Tue Sep 9 12:45:21 2025 +0200
+
+    Delete README.md
+
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index 2cbba77..0000000
+--- a/README.md
++++ /dev/null
+@@ -1,9 +0,0 @@
+-# template
+-
+-![Build](https://github.com/dysshanks/template/actions/workflows/readme-generator.yml/badge.svg)
+-![Issues](https://img.shields.io/github/issues/dysshanks/template)
+-![Stars](https://img.shields.io/github/stars/dysshanks/template)
+-![License](https://img.shields.io/github/license/dysshanks/template)
+-
+----
+-*This README was auto-generated.*
+```
+
+</details>
+
+
 ## Delete docs/COMMITS.md
 - **Commit:** `adb23830e4c99e44a3fb838caf06448c5f4207fd`
 - **Date:** 2025-09-09 12:45:01 +0200
